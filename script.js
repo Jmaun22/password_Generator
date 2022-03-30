@@ -12,75 +12,86 @@ function writePassword() {
 
 function generatePassword() {
 
-  var pass = "dsafafas"
+  var total_list = []
   const specialCharsList = ["!", "@", "#", "$", "%", "^", "&", "*", "-", "=", "+", "(", ")", "{", "}", "[", "]", "?", "/", ">", "<", ".", ",", "~", "|"];
   const numberCharsList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
   const uppercaseList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
   const lowercaseList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
+  let length = prompt("The password must be at least 8 char long and no longer than 128 char.");
+  console.log(length);
 
-  var length = prompt("The password must be at least 8 char long and no longer than 128 char.");
-  alert("The character types in the password can include lowercase, uppercase, numeric and special characters.")
-  var lowercase = prompt("Would you like lower case char type how many.");
-  var uppercase = prompt("Would you like upper case char, type how many you want.");
-  var numeric = prompt("Would you like numeric char, type how many you would like.");
-  var specialChar= prompt("Would you like special characters, type how many you want.");
+  alert("The character types in the password can include lowercase, uppercase, numeric and special characters.");
 
-
-  // var ranLower = lowercaseList[Math.floor(Math.random()*lowercaseList.length)];
-  // var ranUpper = uppercaseList[Math.floor(Math.random()*uppercaseList.length)];
-  // var ranNum = numberCharsList[Math.floor(Math.random()*numberCharsList.length)];
-  // var ranSpecial = specialCharsList[Math.floor(Math.random()*specialCharsList.length)];
  
-  var pass = ${ranLower = makelower(lowercase)} + ${ranUpper = makeupper(uppercase)} + ${ranNum = makenum(numeric)} + ${anSpecial = makespecial(specialChar)} ;
-
-  function makelower(lowercase) {
-    var ranLower = '';
-
-    for (var i = 0; i < lowercase; i++) {
-      ranLower += lowercaseList.charAt(Math.floor(Math.random() * lowercaseList.length ));
-    }
-    return ranLower
-  }
-
-  function makeupper(uppercase) {
-    var ranUpper = '';
-
-    for (var i = 0; i < uppercase; i++) {
-      ranUpper += uppercaseList.charAt(Math.floor(Math.random() * uppercaseList.length ));
-    }
-    return ranUpper
-  }
 
 
-  function makenum(numeric) {
-    var ranNum = '';
    
-    for (var i = 0; i < numeric; i++ ) {
-      ranNum += numberCharsList.charAt(Math.floor(Math.random() * 
- numberCharsList.length));
-   }
-   return ranNum;
-}
 
-function makespecial(specialChar) {
-  var ranSpecial = '';
+ 
+    
+if(confirm("Would you like lower case chars in your password?") == true){
+  
+  total_list = total_list.concat(lowercaseList)
+  console.log("total list" + total_list);
+  
+  // return total_list;
+} 
+  
+  if(confirm("Would you like upper case chars in your password?") == true){
+    total_list = total_list.concat(uppercaseList)
+    console.log("total list" + total_list);
+    // return total_list
+  } 
 
-  for (var i = 0; i < specialChar; i++) {
-    ranSpecial += specialCharsList.charAt(Math.floor(Math.random() * specialCharsList.length ));
+
+
+ if(confirm("Would you like numeric chars in your password?") == true){
+    total_list = total_list.concat(numberCharsList)
+    console.log("total list" + total_list);
+    // return total_list
+  } 
+  
+  if (confirm("Would you like special characters in your password?") == true){
+    total_list = total_list.concat(specialCharsList)
+    console.log("total list" + total_list);
+    // return total_list
+  } 
+
+
+
+  var list = []
+
+  for (let i = 0; i < length; i++) {
+  
+    var ran = getRandomInt(total_list.length)
+  
+
+  var a = total_list[Math.floor(Math.random() * ran)];
+
+
+  
+    
+
+    list.push(a);
+
+
+   
+  
   }
-  return ranSpecial
-}
+  
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
 
 
 
 
-  return pass
 
-
+  return list;
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-generateBtn.addEventListener("click", generatePassword);
+// generateBtn.addEventListener("click", generatePassword);
