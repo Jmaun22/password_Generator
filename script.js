@@ -27,8 +27,19 @@ function generatePassword() {
  
 
 
-   
+if(length == NaN){
+  alert("Please enter how long you would like your password to be.");
+  return "try agian";
+}  
 
+if(length < 8){
+  alert("Sorry your password is to short need to be longer and 8.");
+  return "try agian";
+}
+if(length > 128){
+  alert("Sorry your password is too long");
+  return "try agian";
+}
  
     
 if(confirm("Would you like lower case chars in your password?") == true){
