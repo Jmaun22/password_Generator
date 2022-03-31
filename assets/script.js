@@ -12,6 +12,7 @@ function writePassword() {
 
 function generatePassword() {
 
+  // adding the diffrent types of chars that the password can use
   var total_list = []
   const specialCharsList = ["!", "@", "#", "$", "%", "^", "&", "*", "-", "=", "+", "(", ")", "{", "}", "[", "]", "?", "/", ">", "<", ".", ",", "~", "|"];
   const numberCharsList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
@@ -25,7 +26,7 @@ function generatePassword() {
   alert("The character types in the password can include lowercase, uppercase, numeric and special characters.");
 
  
-
+// Checks to see if the length of the password is long enough
 
 if(length == NaN){
   alert("Please enter how long you would like your password to be.");
@@ -41,7 +42,7 @@ if(length > 128){
   return "try agian";
 }
  
-    
+    // logic to see what type of chars the user wants to use in their password
 if(confirm("Would you like lower case chars in your password?") == true){
   
   total_list = total_list.concat(lowercaseList)
@@ -74,6 +75,8 @@ if(confirm("Would you like lower case chars in your password?") == true){
 
   var list = []
 
+// picks randoms chars for the user to make the password
+
   for (let i = 0; i < length; i++) {
   
     var ran = getRandomInt(total_list.length)
@@ -91,16 +94,18 @@ if(confirm("Would you like lower case chars in your password?") == true){
    
   
   }
-  
+    // used to generate random numbers so that the password is random
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
 
 
+  var sList = list.join("");
 
 
 
-  return list;
+
+  return sList;
 }
 
 // Add event listener to generate button
