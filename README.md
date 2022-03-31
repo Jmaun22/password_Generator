@@ -8,6 +8,8 @@ This password generator, generates passwords with lowercase, uppercase and or sp
 
 ## Screen shots of website
 
+![Screenshot](https://github.com/Jmaun22/password_Generator/blob/a0bb5a9c3f92fb31ffb828bd640e9167888331f2/Screen%20Shot%202022-03-31%20at%208.36.47%20AM.png)
+
 
 
 
